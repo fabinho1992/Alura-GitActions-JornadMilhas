@@ -28,7 +28,8 @@ public class OfertaViagemConstrutor
     public void RetornaMensagemDeErroDeRotaOuPeriodoInvalidosQuandoRotaNula()
     {
         //arrange
-        Rota rota = null;
+        //Rota rota = null;
+        Rota rota = new Rota("origem", "destino");
         Periodo periodo = new Periodo(new DateTime(2024, 2, 1), new DateTime(2024, 2, 5));
         double preco = 100.0;
 
