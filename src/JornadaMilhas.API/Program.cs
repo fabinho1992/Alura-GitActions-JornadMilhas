@@ -19,7 +19,7 @@ builder.Services.AddDbContext<JornadaMilhasContext>((options) =>
 {
     options
         .UseLazyLoadingProxies()
-        .UseSqlServer(builder.Configuration["ConnectionString:DefaultConnection"]);
+        .UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]);
 });
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
@@ -118,7 +118,7 @@ async Task ConfigureDefaultUser(IServiceProvider serviceProvider)
             var result = await userManager.CreateAsync(identityUser, "Senha123@");
             if (!result.Succeeded)
             {
-                throw new Exception("Erro ao criar o usuário padrão.");
+                throw new Exception("Erro ao criar o usuï¿½rio padrï¿½o.");
             }
         }
     }

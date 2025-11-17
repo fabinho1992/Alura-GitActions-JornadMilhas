@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace JornadaMilhas.Dados;
 public class JornadaMilhasContext : IdentityDbContext
 {
+
     public DbSet<OfertaViagem> OfertasViagem { get; set; }
     public DbSet<Rota> Rota { get; set; }
 
@@ -14,19 +15,6 @@ public class JornadaMilhasContext : IdentityDbContext
     }
     public JornadaMilhasContext(DbContextOptions<JornadaMilhasContext> options) : base(options) { }
 
-    private string connectionString = "Server=tcp:jornadamilhasbdserver.database.windows.net,1433;Initial Catalog=JornadaMilhasV3;Persist Security Info=False;User ID=andre;Password=Alura#2024;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-
-        if (optionsBuilder.IsConfigured)
-        {
-            return;
-        }
-        optionsBuilder
-            .UseLazyLoadingProxies()
-            .UseSqlServer(connectionString);
-
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
