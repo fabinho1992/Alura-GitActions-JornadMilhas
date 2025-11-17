@@ -1,0 +1,32 @@
+name: Pipeline2
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    name: Minha primeira pipeline
+    runs-on: ubuntu-latest
+    
+    steps:     
+      - name: Checkout do código
+        uses: actions/checkout@v4  # Atualizei para v4aa
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+      
+      - name: Execução do teste de unidade 
+        run: dotnet test ./test/JornadaMilhas.Unit.Test
+      
+      - name: Publicando a API
+        run: dotnet publish ./src/JornadaMilhas.API -c Release -o ./publish
+      
+      - name: Upload dos arquivos publicados
+        uses: actions/upload-artifact@v4
+        with:
+          name: published-api
+          path: ./publish/
+          retention-days: 1
