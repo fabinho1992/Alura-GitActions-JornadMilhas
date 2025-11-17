@@ -11,14 +11,14 @@ jobs:
    runs-on: ubuntu-latest
    steps:     
       - name: Setup .NET
-        uses: actions/setup-dotnet@v2
+        uses: actions/upload-artifact@v4
         with:
           dotnet-version: 8.0.x
-      - name: Checkout do código
-        uses: actions/checkout@v2  
-      - name: Execução do teste de unidade 
+      - name: Checkout do cÃ³digo
+        uses: actions/upload-artifact@v4  
+      - name: ExecuÃ§Ã£o do teste de unidade 
         run: dotnet test ./test/JornadaMilhas.Unit.Test
-      - name: Testes Integração
+      - name: Testes IntegraÃ§Ã£o
         run: dotnet test ./test/JornadaMilhas.Integration.Test.API
       #dotnet publish ./src/JornadaMilhas.API
       - name: Publicando a API
@@ -43,7 +43,7 @@ jobs:
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
+        uses: actions/upload-artifact@v4
         with:
           app-name: 'jornadamilhas-api'
           slot-name: 'Production'
