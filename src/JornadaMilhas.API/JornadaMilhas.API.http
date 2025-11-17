@@ -1,6 +1,6 @@
 @JornadaMilhas.API_HostAddress = https://localhost:51413
 
-### Endpoint de Autenticação
+### Endpoint de Autenticaï¿½ï¿½o
 POST {{JornadaMilhas.API_HostAddress}}/auth-login
 Content-Type: application/json
 
@@ -18,7 +18,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6I
 {
   "rota": {
     "origem": "Rio",
-    "destino": "Brasília"
+    "destino": "Brasï¿½lia"
   },
   "periodo": {
     "dataInicio": "2024-01-10T14:30:00.000",
